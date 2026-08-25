@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f6f4ee;
+  --surface: #fffdf8;
+  --surface-strong: #ffffff;
+  --ink: #1d2430;
+  --muted: #6d7480;
+  --line: #e4dfd5;
+  --accent: #117b6e;
+  --accent-strong: #0c5d54;
+  --warm: #d97706;
+  --danger: #dc2626;
+  --shadow: 0 24px 70px rgba(48, 42, 32, 0.12);
+}
+
+.dark {
+  --background: #101314;
+  --surface: #171b1d;
+  --surface-strong: #202528;
+  --ink: #f3f0e9;
+  --muted: #a7adb2;
+  --line: #2d3336;
+  --accent: #4fd1c5;
+  --accent-strong: #7ddbd3;
+  --warm: #f5b14c;
+  --danger: #fb7185;
+  --shadow: 0 24px 70px rgba(0, 0, 0, 0.38);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: var(--background);
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(circle at 10% -10%, rgba(17, 123, 110, 0.16), transparent 34rem),
+    radial-gradient(circle at 95% 10%, rgba(217, 119, 6, 0.12), transparent 28rem),
+    var(--background);
+  color: var(--ink);
+  font-family: "Aptos", "Segoe UI", Tahoma, sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.glass {
+  border: 1px solid color-mix(in srgb, var(--line) 84%, transparent);
+  background: color-mix(in srgb, var(--surface) 86%, transparent);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.panel {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  box-shadow: 0 10px 34px rgba(20, 24, 27, 0.06);
+}
+
+.text-muted {
+  color: var(--muted);
+}
+
+.focus-ring:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--accent) 34%, transparent);
+  outline-offset: 2px;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseLine {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scaleX(0.82);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+.animate-rise {
+  animation: rise 0.55s ease both;
+}
+
+.agent-pulse {
+  animation: pulseLine 0.9s ease-in-out infinite;
+}
